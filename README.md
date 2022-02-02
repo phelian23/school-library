@@ -1,4 +1,4 @@
-## Create-Enumerable
+## OOP School Library
 
 In this project, I start building a school library app. I implement the classes to represent students and teachers.
 
