@@ -5,13 +5,13 @@ class Person
   attr_reader :id, :corrector
   attr_accessor :name, :age, :parent_permission, :rentals
 
-  def initialize(age, name = 'unknown', rentals = [], parent_permission: true)
+  def initialize(age, name = 'unknown', parent_permission: true)
     @id = rand(1..1000)
     @name = name
     @age = age
     @parent_permission = parent_permission
     @corrector = Corrector.new
-    @rentals = rentals
+    @rentals = []
   end
 
   def can_use_services?
