@@ -24,6 +24,9 @@ class App
 
       get_new.get_option(option)
     end
+    get_new.save_person
+    get_new.save_books
+    get_new.save_rentals
     puts 'Thank you for using our Library!'
   end
   sleep 0.75
