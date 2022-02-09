@@ -37,6 +37,12 @@ run npm start to launch project on local server.
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/oluwafemi-awoyemi/)
 
 
+👤 **Munsa Mibenge**
+
+- GitHub: [@Munsa1](https://github.com/Munsa1/school-lib)
+- Twitter: [@MibengeMunsa](https://twitter.com/MibengeMunsa)
+- LinkedIn: [Munsa Mibenge](https://www.linkedin.com/in/munsa-mibenge/)
+
 ## Acknowledgments
 
 - Microverse
