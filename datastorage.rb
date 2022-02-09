@@ -54,7 +54,8 @@ module DataStorage
         if person['key'] == 'teacher'
           Teacher.new(person['specialization'], person['age'], person['name'])
         else
-          Student.new(@classroom = Classroom.new(person['classroom']), person['age'], person['name'], person['parent_permission'])
+          Student.new(@classroom = Classroom.new(person['classroom']), person['age'], person['name'],
+                      person['parent_permission'])
         end
       end
     else
