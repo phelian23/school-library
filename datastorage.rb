@@ -22,4 +22,18 @@ module DataStorage
       save_data('person.json', data)
     end
   end
+  
+  def save_rentals
+    data = [] 
+    @rentals.each do |rental|
+        data << ({date: rental.date, person: rental.person.id, book: rental.book.id})
+      save_data('rental.json', data)
+  end
+  
+  def save_books
+    data = []
+    @books.each do |book|
+        data << ({title: book.title, author: book.author})
+      save_data('books.json', data)
+  end
 end
