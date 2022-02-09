@@ -49,8 +49,8 @@ module DataStorage
     filename = 'person.json'
     if File.exist? filename
       data = load_data(filename)
-      data.each do |person|
-        if person['key'] == 'Teacher'
+      data.map do |person|
+        if person['key'] == 'teacher'
           Teacher.new(person['specialization'], person['age'], person['name'])
         else
           Student.new(person['classroom'], person[age], person['name'], person['parent_permission'])
@@ -65,10 +65,33 @@ module DataStorage
     filename = 'books.json'
     if File.exist? filename
       data = load_data(filename)
-      data.each do |book|
-        Book.new(book['title'], book['author'] )
+      data.map do |book|
+        Book.new(book['title'], book['author'])
       end
     else
       []
     end
+  end
+
+  def get_person(id)
+    @people.each { |person| return person if person.id == id }
+  end
+
+  def get_book(title)
+    @books.each { |book| return book if book.title == title }
+  end
+
+  def load_rentals
+    filename = 'rentals.json'
+    if File.exist? filename
+      data = load_data(filename)
+      data.map do |rental|
+        person = get_person(rental['person'])
+        book = get_book(rental['book'])
+        Rental.new(rental['date'], book, person)
+      end
+    else
+      []
+    end
+  end
 end

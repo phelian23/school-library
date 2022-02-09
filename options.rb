@@ -10,8 +10,8 @@ class Option
   include DataStorage
   def initialize
     @people = load_people
-    @books = []
-    @rentals = []
+    @books = load_books
+    @rentals = load_rentals
     @classrooms = Classroom.new('Form 5')
   end
 
