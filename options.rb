@@ -4,12 +4,14 @@ require_relative 'teacher'
 require_relative 'rental'
 require_relative 'book'
 require_relative 'classroom'
+require_relative 'datastorage'
 
 class Option
+  include DataStorage
   def initialize
-    @people = []
-    @books = []
-    @rentals = []
+    @people = load_people
+    @books = load_books
+    @rentals = load_rentals
     @classrooms = Classroom.new('Form 5')
   end
 
