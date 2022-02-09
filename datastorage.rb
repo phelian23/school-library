@@ -3,6 +3,7 @@ require_relative 'person'
 require_relative 'options'
 require_relative 'rental'
 require_relative 'book'
+require_relative 'classroom'
 
 module DataStorage
   def save_data(filename, data)
@@ -23,7 +24,7 @@ module DataStorage
                   specialization: person.specialization }
               else
                 { key: 'student', id: person.id, age: person.age, name: person.name,
-                  parent_permission: person.parent_permission, classroom: person.classroom }
+                  parent_permission: person.parent_permission, classroom: person.classroom.label }
               end
       save_data('person.json', data)
     end
@@ -53,7 +54,7 @@ module DataStorage
         if person['key'] == 'teacher'
           Teacher.new(person['specialization'], person['age'], person['name'])
         else
-          Student.new(person['classroom'], person[age], person['name'], person['parent_permission'])
+          Student.new(@classroom = Classroom.new(person['classroom']), person['age'], person['name'], person['parent_permission'])
         end
       end
     else
